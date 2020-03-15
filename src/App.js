@@ -1,26 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Link} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import FullWidthGrid from './components/Grid.js'
+// import SimpleContainer from './components/Container.js'
+import save from './pages/save/save';
+import MySearch from './components/search/mySearch';
+import NoMatch from './pages/Nomatch/NoMatch';
+import MyNavbar  from './components/Navbar'
+import Search from './pages/search'
+import Book from './components/Book'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     
+    
+    <Router>
+      <MyNavbar/>
+      <br/>
+      <Book/>
+
+      
+        
+      
+       <Switch>
+      <Route exact path="/" component={Search}/>
+        <Route exact path="/save" component={save}/>
+        <Route exact path="/Search" component={Search}/>
+        {/* <Route exact path="/Dashboard/:someparam" component={Dashboard}/> */}
+        <Route component={NoMatch} />
+      </Switch>
+
+    </Router>
+    
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
